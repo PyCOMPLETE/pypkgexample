@@ -12,6 +12,8 @@ https://levelup.gitconnected.com/how-to-deploy-a-cython-package-to-pypi-8217a658
 
 with f2py
 
+https://numpy.org/devdocs/f2py/distutils.html
+
 https://stackoverflow.com/questions/7932028/setup-py-for-packages-that-depend-on-both-cython-and-f2py
 
 
