@@ -16,6 +16,10 @@ https://numpy.org/devdocs/f2py/distutils.html
 
 https://stackoverflow.com/questions/7932028/setup-py-for-packages-that-depend-on-both-cython-and-f2py
 
+with ctypes
+
+https://docs.python.org/3.8/extending/building.html
+
 
 ## Some other info
 
