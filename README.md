@@ -1,7 +1,13 @@
 # hellofrom
 
-how to package projets
+how to package projects
 https://packaging.python.org/tutorials/packaging-projects/
+
+how to package something that includes cython
+
+https://levelup.gitconnected.com/how-to-deploy-a-cython-package-to-pypi-8217a6581f09
+
+
 
 
 cython vs swig
