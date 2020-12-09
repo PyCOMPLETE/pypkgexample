@@ -1,5 +1,7 @@
 # hellofrom
 
+## How to package
+
 how to package projects
 
 https://packaging.python.org/tutorials/packaging-projects/
@@ -8,8 +10,12 @@ how to package something that includes cython
 
 https://levelup.gitconnected.com/how-to-deploy-a-cython-package-to-pypi-8217a6581f09
 
+with f2py
+
+https://stackoverflow.com/questions/7932028/setup-py-for-packages-that-depend-on-both-cython-and-f2py
 
 
+## Some other info
 
 cython vs swig
 
