@@ -34,6 +34,11 @@ with ctypes
 
 https://docs.python.org/3.8/extending/building.html
 
+## Our examples
+
+https://github.com/PyCOMPLETE/NAFFlib
+
+https://github.com/PyCOMPLETE/PyHEADTAIL
 
 ## Some other info
 
