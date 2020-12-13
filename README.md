@@ -20,6 +20,8 @@ how to package something that includes cython
 
 https://levelup.gitconnected.com/how-to-deploy-a-cython-package-to-pypi-8217a6581f09
 
+https://github.com/FedericoStra/cython-package-example
+
 with f2py
 
 https://numpy.org/devdocs/f2py/distutils.html
