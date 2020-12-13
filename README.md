@@ -10,6 +10,8 @@ https://setuptools.readthedocs.io/en/latest/userguide/quickstart.html
 
 https://packaging.python.org/tutorials/packaging-projects/
 
+https://github.com/pypa/sampleproject (sample project)
+
 https://www.bernat.tech/pep-517-518/
 
 how to package something that includes cython
