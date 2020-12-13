@@ -8,6 +8,8 @@ https://www.bernat.tech/pep-517-and-python-packaging/ (very instructive)
 
 https://setuptools.readthedocs.io/en/latest/userguide/quickstart.html
 
+https://packaging.python.org/guides/distributing-packages-using-setuptools/
+
 https://packaging.python.org/tutorials/packaging-projects/
 
 https://github.com/pypa/sampleproject (sample project)
