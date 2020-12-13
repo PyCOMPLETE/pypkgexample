@@ -4,9 +4,9 @@
 
 how to package projects
 
-https://packaging.python.org/tutorials/packaging-projects/
+https://www.bernat.tech/pep-517-and-python-packaging/ (very instructive)
 
-https://www.bernat.tech/pep-517-and-python-packaging/
+https://packaging.python.org/tutorials/packaging-projects/
 
 https://www.bernat.tech/pep-517-518/
 
