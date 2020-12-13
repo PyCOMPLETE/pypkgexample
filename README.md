@@ -20,7 +20,9 @@ how to package something that includes cython
 
 https://levelup.gitconnected.com/how-to-deploy-a-cython-package-to-pypi-8217a6581f09
 
-https://github.com/FedericoStra/cython-package-example
+https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#distributing-cython-modules
+
+https://github.com/FedericoStra/cython-package-example (sample project)
 
 with f2py
 
