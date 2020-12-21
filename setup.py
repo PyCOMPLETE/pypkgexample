@@ -1,18 +1,20 @@
 from setuptools import setup, find_packages
 
-from numpy.distutils.core import Extension as npExtension
+# f2py extension (to handle f2py extensions we need to 
+# replace setup and Extension with numpy ones)
+from numpy.distutils.core import Extension
 from numpy.distutils.core import setup
+ext1 = Extension(
+        name = 'hellofrom.hellofrom_fortran.helloffort',
+        sources = ['./hellofrom/hellofrom_fortran/hello_subr.f90'])
 
-ext1 = npExtension(
-        name = 'hellofrom.hffortran',
-        sources = ['./hellofrom/hello_from_fortran/sqrt_array.f90'])
-
+# Setup
 setup(
     name='hellofrom',
     packages=find_packages(),
     ext_modules = [ext1],
     install_requires=[
         'numpy>=1.0',
-        'pytest', # This could be made optional but we don't do it 
+        'pytest', # In principle could be made optional
         ]
     )
