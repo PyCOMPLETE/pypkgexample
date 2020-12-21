@@ -4,7 +4,7 @@ from numpy.distutils.core import Extension as npExtension
 from numpy.distutils.core import setup
 
 ext1 = npExtension(
-        name = 'hffortran',
+        name = 'hellofrom.hffortran',
         sources = ['./hellofrom/hello_from_fortran/sqrt_array.f90'])
 
 setup(
