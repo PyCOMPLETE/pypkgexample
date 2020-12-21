@@ -1,10 +1,10 @@
-      subroutine sqrt_array_inplace(vect, vect_len, res)
+      subroutine sqrt_array(vect, vect_len, res)
       
         implicit none
         
         integer, intent(in)     :: vect_len
-        real, intent(in)        :: vect(vect_len)
-        real, intent(out)       :: res(vect_len)
+        real(kind=8), intent(in)        :: vect(vect_len)
+        real(kind=8), intent(out)       :: res(vect_len)
         
         integer ::  i
 

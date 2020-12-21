@@ -1,2 +1,2 @@
-from .. import hffortran as hf
+from . import helloffort as hf
 
