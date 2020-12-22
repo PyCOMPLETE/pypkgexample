@@ -1,5 +1,9 @@
 from setuptools import setup, find_packages, Extension
 
+#######################################
+# Prepare list of compiled extensions #
+#######################################
+
 extensions = []
 
 # C extension called via ctypes
@@ -15,16 +19,12 @@ extensions.append(
             # macro declarations, etc. See setuptools documentation.
         )
 
+# C extension called via cython
 extensions.append(
         Extension(
-            # "name" defines the location of the compiled module 
-            # within the paccage tree:
             name='hellofrom.hellofrom_c_with_cython.hellofccyth', 
-            # "sources" are the source files to be compiled
             sources=[('./hellofrom/hellofrom_c_with_cython/'
                         + 'hellocython.pyx')],
-            # Here one can add compilation flags, libraries, 
-            # macro declarations, etc. See setuptools documentation.
             include_dirs=['./hellofrom/hellofrom_c_with_cython/']
         ))
 
@@ -37,16 +37,17 @@ extensions.append(
         Extension(
             name='hellofrom.hellofrom_fortran.helloffort',
             sources=['./hellofrom/hellofrom_fortran/hello_subr.f90'])
-            # Here one can add compilation flags, 
-            # libraries, macro declarations, etc.
         )
 
 
-# if there are cython extension
+# If there are cython extension
 from Cython.Build import cythonize
 extensions = cythonize(extensions)
 
-# Setup
+#########
+# Setup #
+#########
+
 setup(
     name='hellofrom',
     packages=find_packages(),
