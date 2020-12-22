@@ -1,16 +1,15 @@
-# hellofrom
+# References
+The following resources were used in preparing this package.
 
-## How to package
+## On python packaging
 
-how to package projects
-
-https://www.bernat.tech/pep-517-and-python-packaging/ (very instructive)
-
-https://setuptools.readthedocs.io/en/latest/userguide/quickstart.html
+https://www.bernat.tech/pep-517-and-python-packaging/
 
 https://packaging.python.org/guides/distributing-packages-using-setuptools/
 
 https://packaging.python.org/tutorials/packaging-projects/
+
+https://setuptools.readthedocs.io/en/latest/userguide/quickstart.html
 
 https://github.com/pypa/sampleproject (sample project)
 
@@ -18,7 +17,8 @@ https://www.bernat.tech/pep-517-518/
 
 https://betterscientificsoftware.github.io/python-for-hpc/tutorials/python-pypi-packaging/
 
-how to package something that includes cython
+
+## Packaging cython extensions
 
 https://levelup.gitconnected.com/how-to-deploy-a-cython-package-to-pypi-8217a6581f09
 
@@ -26,39 +26,35 @@ https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilati
 
 https://github.com/FedericoStra/cython-package-example (sample project)
 
-with f2py
+
+## Packaging f2py extensions
 
 https://numpy.org/devdocs/f2py/distutils.html
 
-https://stackoverflow.com/questions/7932028/setup-py-for-packages-that-depend-on-both-cython-and-f2py
-
 https://numpy.org/devdocs/f2py/f2py.getting-started.html
 
-with ctypes
+
+## Packaging C extensions using cython
 
 https://docs.python.org/3.8/extending/building.html
 
 https://pgi-jcns.fz-juelich.de/portal/pages/using-c-from-python.html
 
-## Our examples
 
-https://github.com/PyCOMPLETE/NAFFlib
 
-https://github.com/PyCOMPLETE/PyHEADTAIL
+## Some additional material
 
-## Some other info
-
-cython vs swig
+Comparison cython vs swig:
 
 https://us.pycon.org/2013/schedule/presentation/111/
 
-comparison cffi cython pybind11
+Comparison cffi cython pybind11:
 
 http://blog.behnel.de/posts/cython-pybind11-cffi-which-tool-to-choose.html
 
 https://iscinumpy.gitlab.io/post/tools-to-bind-to-python/
 
-swig vs pybind11
+Comparison swig vs pybind11:
 
 https://indico.cern.ch/event/974806/contributions/4104878/attachments/2158553/3641806/CMW-Python-Dec2020-Piotr.pdf
 
