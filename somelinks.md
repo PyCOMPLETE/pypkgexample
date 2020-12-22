@@ -36,6 +36,8 @@ with ctypes
 
 https://docs.python.org/3.8/extending/building.html
 
+https://pgi-jcns.fz-juelich.de/portal/pages/using-c-from-python.html
+
 ## Our examples
 
 https://github.com/PyCOMPLETE/NAFFlib
