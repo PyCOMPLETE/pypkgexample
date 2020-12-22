@@ -1,2 +1,5 @@
-from . import helloffort as hf
+from . import helloffort as _hf
+
+def sqrt_array(vect):
+    return _hf.sqrt_array(vect)
 
