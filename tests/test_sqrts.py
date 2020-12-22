@@ -15,3 +15,8 @@ def test_sqrt_c_ctypes():
     assert np.max(
             hf.sqrt_array_c_ctypes([1., 4., 9.])-
           -  np.array([1., 2., 3.])) < 1e30
+
+def test_sqrt_c_cython():
+    assert np.max(
+            hf.sqrt_array_c_cython([1., 4., 9.])-
+          -  np.array([1., 2., 3.])) < 1e30
