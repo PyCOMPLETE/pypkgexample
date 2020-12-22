@@ -16,6 +16,8 @@ https://github.com/pypa/sampleproject (sample project)
 
 https://www.bernat.tech/pep-517-518/
 
+https://betterscientificsoftware.github.io/python-for-hpc/tutorials/python-pypi-packaging/
+
 how to package something that includes cython
 
 https://levelup.gitconnected.com/how-to-deploy-a-cython-package-to-pypi-8217a6581f09
