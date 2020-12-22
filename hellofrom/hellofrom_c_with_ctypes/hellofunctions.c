@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdio.h>
 
 void sqrt_array(double* vect, int vect_len, double* res) {
     int ii;
@@ -7,3 +8,7 @@ void sqrt_array(double* vect, int vect_len, double* res) {
     }
 }
 
+void say_hello() {
+    printf("Hello from C with ctypes!\n");
+    fflush(stdout);
+}

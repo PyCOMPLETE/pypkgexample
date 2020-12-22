@@ -24,3 +24,6 @@ def sqrt_array(vect):
     res = np.empty_like(vect_arr)
     _hc.sqrt_array(vect_arr, len(vect_arr), res)
     return(res)
+
+def say_hello():
+    _hc.say_hello()

@@ -5,3 +5,6 @@ def test_python():
 
 def test_fortran():
     hf.say_hello_fortran()
+
+def test_c_ctypes():
+    hf.say_hello_c_ctypes()
