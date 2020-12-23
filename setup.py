@@ -28,9 +28,10 @@ extensions.append(
             include_dirs=['./mymodule/mymodule_c_with_cython/']
         ))
 
+
 # f2py extension 
-# (to handle f2py extensions we need toreplace setup and 
-# Extension with numpy ones)
+# (to handle f2py extensions we need to replace the setup function and 
+# the Extension class with their exteded version from numpy ones)
 from numpy.distutils.core import Extension
 from numpy.distutils.core import setup
 extensions.append(
