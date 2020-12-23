@@ -58,7 +58,8 @@ print(f'From C via cython: {pe.sqrt_array_c_cython(a)}')
 
 ```pypkgexample``` has the structure used for standard python packages. It consists in a folder named after the package "pypkgexample" (which is also the top level of the git repository) that contains the source code, the code and information for the installation, documentation, unit tests and usage examples. In particular:
  - The **source code** is hosted in a subfolder that also has the same name of the python package (pypkgexample).
-
+ - **Unit tests** are hosted in the folder tests and can be executed using [pytest](http://pytest.org)
+ - ...
 
 ## TEMP
 Following PEP517, the setup is not executed by your python environment, but by an environment built ad-hoc at install time.
