@@ -1,4 +1,4 @@
-# Hello From
+# pypkgexample
 
 This package provides an example of python package, including compiled parts in C and Fortran, following the standard structure for python packaging.
 
@@ -6,7 +6,7 @@ It illustrates how tho create a package that can be easily installed using the [
 
 The package can therefore be simply done by typing:
 ```bash
-pip install hellofrom
+pip install pypkgexample
 ```
 assuming that the packagee has been downloaded in the current folder.
 
@@ -20,12 +20,12 @@ These features are implemented in pure python, as well as through extensions imp
 
 The package can be used as follows:
 ```python
-import hellofrom as hf
+import pypkgexample as pe
 
-hf.say_hello_python()
-hf.say_hello_fortran()
-hf.say_hello_c_ctypes()
-hf.say_hello_c_cython()
+pe.say_hello_python()
+pe.say_hello_fortran()
+pe.say_hello_c_ctypes()
+pe.say_hello_c_cython()
 
 # produces the following output:
 #
@@ -37,14 +37,14 @@ hf.say_hello_c_cython()
 
 ```python
 import numpy as np
-import hellofrom as hf
+import pypkgexample as pe
 
 a = np.array([9., 4., 1.])
 
-print(f'From python: {hf.sqrt_array_python(a)}')
-print(f'From Fortran via f2py: {hf.sqrt_array_fortran(a)}')
-print(f'From C via ctypes: {hf.sqrt_array_c_ctypes(a)}')
-print(f'From C via cython: {hf.sqrt_array_c_cython(a)}')
+print(f'From python: {pe.sqrt_array_python(a)}')
+print(f'From Fortran via f2py: {pe.sqrt_array_fortran(a)}')
+print(f'From C via ctypes: {pe.sqrt_array_c_ctypes(a)}')
+print(f'From C via cython: {pe.sqrt_array_c_cython(a)}')
 
 # produces the following output:
 #
@@ -56,8 +56,8 @@ print(f'From C via cython: {hf.sqrt_array_c_cython(a)}')
 
 ## Structure of the package
 
-```hellofrom``` has the structure used for standard python packages. It consists in a folder named after the package "hellofrom" (which is also the top level of the git repository) that contains the source code, the code and information for the installation, documentation, unit tests and usage examples. In particular:
- - The **source code** is hosted in a subfolder that also has the same name of the python package (hellofrom).
+```pypkgexample``` has the structure used for standard python packages. It consists in a folder named after the package "pypkgexample" (which is also the top level of the git repository) that contains the source code, the code and information for the installation, documentation, unit tests and usage examples. In particular:
+ - The **source code** is hosted in a subfolder that also has the same name of the python package (pypkgexample).
 
 
 ## TEMP
