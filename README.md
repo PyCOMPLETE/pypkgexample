@@ -56,9 +56,8 @@ print(f'From C via cython: {hf.sqrt_array_c_cython(a)}')
 
 ## Structure of the package
 
-```hellofrom``` has the structure used for standard python packages. It consists in a folder named after the package "hellofrom" (which is also the top level of the git repository) that contains the source code, the code and information for the installation, documentation, unit tests and usage examples. 
-
-### Source code
+```hellofrom``` has the structure used for standard python packages. It consists in a folder named after the package "hellofrom" (which is also the top level of the git repository) that contains the source code, the code and information for the installation, documentation, unit tests and usage examples. In particular:
+ - The **source code** is hosted in a subfolder that also has the same name of the python package (hellofrom).
 
 
 ## TEMP
