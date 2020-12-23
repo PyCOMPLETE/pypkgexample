@@ -66,7 +66,18 @@ print(f'From C via cython: {pe.sqrt_array_c_cython(a)}')
  
 ## Installation code and information
 
-.... 
+The build and installation process is performed by the pip pacakge installer based on the following files
+
+### pyproject.toml
+
+The file "pyproject.toml" defines the backend used of the build, which in our case is [setuptools](https://pypi.org/project/setuptools/), and the dependencies that are required to build the package. 
+Such dependencies are not permanently installed, but are used only to build the package.
+
+### MANIFEST.in
+
+The file 
+
+### setup.py
 
 ## TEMP
 Following PEP517, the setup is not executed by your python environment, but by an environment built ad-hoc at install time.
