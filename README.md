@@ -10,6 +10,7 @@ pip install hellofrom
 ```
 assuming that the project has been downloaded in the current folder.
 
+
 ## Structure of the package
 
 The package consists in a folder named "hellofrom" which contains the source code, the installation script and additional information, some documentation, unit tests and usage examples.
