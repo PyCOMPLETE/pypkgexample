@@ -10,6 +10,8 @@ pip install hellofrom
 ```
 assuming that the packagee has been downloaded in the current folder.
 
+## Example code
+
 The package performs two tasks for illustration purposes:
  - it says "hello";
  - it computes the square root of an array (to illustrate how to pass an array to Fortran or C compiled code).
@@ -55,6 +57,7 @@ print(f'From C via cython: {hf.sqrt_array_c_cython(a)}')
 ## Structure of the package
 
 The package consists in a folder named "hellofrom" which contains the source code, the installation script and additional information, some documentation, unit tests and usage examples.
+
 
 ## TEMP
 Following PEP517, the setup is not executed by your python environment, but by an environment built ad-hoc at install time.
