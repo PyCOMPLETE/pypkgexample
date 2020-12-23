@@ -14,7 +14,7 @@ assuming that the project has been downloaded in the current folder.
 
 The package consists in a folder named "hellofrom" which contains the source code, the installation script and additional information, some documentation, unit tests and usage examples.
 
-
+## TEMP
 Following PEP517, the setup is not executed by your python environment, but by an environment built ad-hoc at install time.
 The packages to be retrieved for the installation are specified in pyproject.toml. Note that numpy needs to be included in order to compile extensions with f2py.
 
