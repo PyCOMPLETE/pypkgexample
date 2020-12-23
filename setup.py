@@ -11,9 +11,9 @@ extensions.append(
         Extension(
             # "name" defines the location of the compiled module 
             # within the paccage tree:
-            name='hellofrom.hellofrom_c_with_ctypes.hellofcctyp',
+            name='pypkgexample.mymodule_c_with_ctypes.hellofcctyp',
             # "sources" are the source files to be compiled
-            sources=[('./hellofrom/hellofrom_c_with_ctypes/'
+            sources=[('pypkgexample/mymodule_c_with_ctypes/'
                         + 'hellofunctions.c')]),
             # Here one can add compilation flags, libraries, 
             # macro declarations, etc. See setuptools documentation.
@@ -22,10 +22,10 @@ extensions.append(
 # C extension called via cython
 extensions.append(
         Extension(
-            name='hellofrom.hellofrom_c_with_cython.hellofccyth', 
-            sources=[('./hellofrom/hellofrom_c_with_cython/'
+            name='pypkgexample.mymodule_c_with_cython.hellofccyth', 
+            sources=[('pypkgexample/mymodule_c_with_cython/'
                         + 'hellocython.pyx')],
-            include_dirs=['./hellofrom/hellofrom_c_with_cython/']
+            include_dirs=['./mymodule/mymodule_c_with_cython/']
         ))
 
 # f2py extension 
@@ -35,8 +35,8 @@ from numpy.distutils.core import Extension
 from numpy.distutils.core import setup
 extensions.append(
         Extension(
-            name='hellofrom.hellofrom_fortran.helloffort',
-            sources=['./hellofrom/hellofrom_fortran/hello_subr.f90'])
+            name='pypkgexample.mymodule_fortran.helloffort',
+            sources=['pypkgexample/mymodule_fortran/hello_subr.f90'])
         )
 
 
