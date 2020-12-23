@@ -95,7 +95,7 @@ requires = [
 
 The file "MANIFEST.in" defined the additional files that need to be copied together with the installed packeage together with those that are strictly required for the package to work. In our case we include this readme file and the license information.
 
-```md
+```python
 include pyproject.toml
 
 # Include the README
