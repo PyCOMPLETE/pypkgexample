@@ -64,7 +64,7 @@ print(f'From C via cython: {pe.sqrt_array_c_cython(a)}')
  - This **documentation** is contained in the file "README.md"
  - The **installation code and information** is defined by the files "pyprojet.toml", "MANIFEST.in", "setup.py", which will be described in more detail in the following section.
  
-## Installation code and information
+## Installation code
 
 The build and installation process is performed by the pip pacakge installer based on the following files
 
@@ -75,9 +75,11 @@ Such dependencies are not permanently installed, but are used only to build the 
 
 ### MANIFEST.in
 
-The file 
+The file "MANIFEST.in" defined the additional files that need to be copied together with the installed packeage together with those that are strictly required for the package to work. In our case we include this readme file and the license information.
 
 ### setup.py
+
+
 
 ## TEMP
 Following PEP517, the setup is not executed by your python environment, but by an environment built ad-hoc at install time.
