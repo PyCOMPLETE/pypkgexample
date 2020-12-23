@@ -8,7 +8,7 @@ The package can therefore be simply done by typing:
 ```bash
 pip install hellofrom
 ```
-assuming that the project has been downloaded in the current folder or made availabe in the [Python Package Index PyPI](https://pypi.org).
+assuming that the project has been downloaded in the current folder.
 
 ## Structure of the package
 
