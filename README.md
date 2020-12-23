@@ -95,7 +95,7 @@ requires = [
 
 The file "MANIFEST.in" defined the additional files that need to be copied together with the installed packeage together with those that are strictly required for the package to work. In our case we include this readme file and the license information.
 
-```toml
+```md
 include pyproject.toml
 
 # Include the README
@@ -113,7 +113,7 @@ include LICENSE.txt
 Following PEP517, the setup is not executed by your python environment, but by an environment built ad-hoc at install time.
 The packages to be retrieved for the installation are specified in pyproject.toml. Note that numpy needs to be included in order to compile extensions with f2py.
 
-```md
+```toml
 [build-system]
 build-backend = 'setuptools.build_meta'
 requires = [
