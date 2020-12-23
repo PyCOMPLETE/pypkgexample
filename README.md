@@ -10,7 +10,7 @@ pip install pypkgexample
 ```
 assuming that the packagee has been downloaded in the current folder.
 
-## Example taks
+## Tasks performed by pypkgexample
 
 The package performs two tasks for illustration purposes:
  - it says "hello";
