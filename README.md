@@ -1,5 +1,9 @@
 # pypkgexample
 
+## Table of contents
+ - [Introduction](#introduction) 
+
+## Introduction
 This package provides an example of python package, including compiled parts in C and Fortran, following the standard structure for python packaging.
 
 It illustrates how tho create a package that can be easily installed using the [Python Package Installer (pip)](https://pip.pypa.io/), which automatically retrieves all the dependencies and compiles extensions in C and Fortran. 
