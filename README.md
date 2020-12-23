@@ -8,8 +8,17 @@ The package can therefore be simply done by typing:
 ```bash
 pip install hellofrom
 ```
-assuming that the project has been downloaded in the current folder.
+assuming that the packagee has been downloaded in the current folder.
 
+The package performs two tasks for illustration purposes:
+ - it says "hello";
+ - it computes the square root of an array (to illustrate how to pass an array to Fortran or C compiled code).
+
+This can be done as follows:
+
+```python
+ 
+```
 
 ## Structure of the package
 
