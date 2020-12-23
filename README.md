@@ -14,11 +14,17 @@ The package performs two tasks for illustration purposes:
  - it says "hello";
  - it computes the square root of an array (to illustrate how to pass an array to Fortran or C compiled code).
  
-These features are implemented in pure python, as well as through extensions implemented in Fortran (via [f2py](https://numpy.org/doc/stable/f2py/)) and in C (via ctypes and cython).
+These features are implemented in pure python, as well as through extensions implemented in Fortran (bound via [f2py](https://numpy.org/doc/stable/f2py/)) and in C (bound via [ctypes](https://docs.python.org/3/library/ctypes.html) and [cython](https://cython.org)).
 
-It works as follows:
+The package can be used as follows:
 ```python
- 
+### To say hello
+import hellofrom as hf
+
+hf.say_hello_python()
+hf.say_hello_fortran()
+hf.say_hello_c_ctypes()
+hf.say_hello_c_cython()
 ```
 
 ## Structure of the package
