@@ -18,7 +18,6 @@ These features are implemented in pure python, as well as through extensions imp
 
 The package can be used as follows:
 ```python
-### To say hello
 import hellofrom as hf
 
 hf.say_hello_python()
@@ -34,6 +33,24 @@ hf.say_hello_c_cython()
 # Hello from C with cython!
 ```
 
+```python
+import numpy as np
+import hellofrom as hf
+
+a = np.array([9., 4., 1.])
+
+print(f'From python: {hf.sqrt_array_python(a)}')
+print(f'From Fortran via f2py: {hf.sqrt_array_fortran(a)}')
+print(f'From C via ctypes: {hf.sqrt_array_c_ctypes(a)}')
+print(f'From C via cython: {hf.sqrt_array_c_cython(a)}')
+
+# produces the following output:
+#
+# From python: [3., 2., 1.]
+# From Fortran: [3., 2., 1.]
+# From C with ctypes: [3., 2., 1.]
+# From C with cython: [3., 2., 1.]
+```
 
 ## Structure of the package
 
