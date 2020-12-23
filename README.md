@@ -12,7 +12,7 @@ assuming that the project has been downloaded in the current folder or made avai
 
 ## Structure of the package
 
-The package consists in a folder named hellofrom which contains the source code, the installation script and additional information, some documentation, unit tests and usage examples.
+The package consists in a folder named "hellofrom" which contains the source code, the installation script and additional information, some documentation, unit tests and usage examples.
 
 
 Following PEP517, the setup is not executed by your python environment, but by an environment built ad-hoc at install time.
