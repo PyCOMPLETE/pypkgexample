@@ -49,10 +49,10 @@ extensions = cythonize(extensions)
 #########
 
 setup(
-    name='hellofrom',
+    name='pypkgexample',
     version='0.0.0',
     description='Example python package with compiled extensions',
-    url='https://github.com/giadarol/hellofrom',
+    url='https://github.com/giadarol/pypkgexample',
     author='Giovanni Iadarola',
     packages=find_packages(),
     ext_modules = extensions,
