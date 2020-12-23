@@ -50,6 +50,10 @@ extensions = cythonize(extensions)
 
 setup(
     name='hellofrom',
+    version='0.0.0',
+    description='Example python package with compiled extensions',
+    url='https://github.com/giadarol/hellofrom',
+    author='Giovanni Iadarola',
     packages=find_packages(),
     ext_modules = extensions,
     install_requires=[
