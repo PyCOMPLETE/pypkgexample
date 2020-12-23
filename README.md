@@ -81,6 +81,16 @@ The build and installation process is performed by the pip pacakge installer bas
 The file "pyproject.toml" defines the backend used of the build, which in our case is [setuptools](https://pypi.org/project/setuptools/), and the dependencies that are required to build the package. 
 Such dependencies are not permanently installed, but are used only to build the package.
 
+```toml
+[build-system]
+build-backend = 'setuptools.build_meta'
+requires = [
+    'setuptools >= 43.0.0',
+    'numpy', # required to compile f2py extension
+    'cython', # requred to compile cython extension
+    ]
+```
+
 ### MANIFEST.in
 
 The file "MANIFEST.in" defined the additional files that need to be copied together with the installed packeage together with those that are strictly required for the package to work. In our case we include this readme file and the license information.
