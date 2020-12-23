@@ -62,8 +62,11 @@ print(f'From C via cython: {pe.sqrt_array_c_cython(a)}')
  - **Examples** illustrating the package usage are hosted in the folder "examples"
  - **License** information is contained in the file "LICENSE.txt"
  - This **documentation** is contained in the file "README.md"
- - The **installation code and information** is defined by the files "pyprojet.toml", "MANIFEST.in", "setup.py"
+ - The **installation code and information** is defined by the files "pyprojet.toml", "MANIFEST.in", "setup.py", which will be described in more detail in the following section.
  
+## Installation code and information
+
+.... 
 
 ## TEMP
 Following PEP517, the setup is not executed by your python environment, but by an environment built ad-hoc at install time.
