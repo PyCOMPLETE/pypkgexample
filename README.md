@@ -2,6 +2,10 @@
 
 ## Table of contents
  - [Introduction](#introduction) 
+ - [Tasks performed by pypkgexample](#tasks-performed-by-pypkgexample)
+ - [Structure of the package](#structure-of-the-package)
+ - [Installation code](#installation-code)
+ - [References](#references)
 
 ## Introduction
 This package provides an example of python package, including compiled parts in C and Fortran, following the standard structure for python packaging.
