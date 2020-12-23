@@ -27,6 +27,7 @@ hf.say_hello_c_ctypes()
 hf.say_hello_c_cython()
 
 # produces the following output:
+#
 # Hello from python!
 #  Hello from Fortran!
 # Hello from C with ctypes!
