@@ -20,13 +20,20 @@ extensions.append(
         )
 
 # C extension called via cython
-extensions.append(
+from Cython.Build import cythonize
+cython_extensions = [
         Extension(
             name='pypkgexample.mymodule_c_with_cython.hellofccyth', 
             sources=[('pypkgexample/mymodule_c_with_cython/'
                         + 'hellocython.pyx')],
             include_dirs=['./mymodule/mymodule_c_with_cython/']
-        ))
+        ),
+        # Other cython extensions can be added here
+    ]
+# Cython extensions need to be cythonized before being added to main
+# extension list
+extensions += cythonize(cython_extensions)
+
 
 
 # f2py extension 
@@ -39,11 +46,6 @@ extensions.append(
             name='pypkgexample.mymodule_fortran.helloffort',
             sources=['pypkgexample/mymodule_fortran/hello_subr.f90'])
         )
-
-
-# If there are cython extension
-from Cython.Build import cythonize
-extensions = cythonize(extensions)
 
 #########
 # Setup #
