@@ -107,14 +107,14 @@ include LICENSE.txt
 
 ### setup.py
 
-The setup script "setup.py" defines the installation process.
+The setup script "setup.py" defines the installation process, by performing the following steps
 
-It imports the required functions and classes from setup tools:
+The required functions and classes are imported from the setuptools library:
 ```python
 from setuptools import setup, find_packages, Extension
 ```
 
-It builds a list of the compiled extensions:
+A list of the extensions to be compiled is built. In our case this includes a C extension with ctypes bindings, a C extension with cython bindings and a Fortran extension with f2py bindings:
 ```python
 extensions = []
 
