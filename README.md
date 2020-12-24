@@ -114,7 +114,7 @@ The required functions and classes are imported from the setuptools library:
 from setuptools import setup, find_packages, Extension
 ```
 
-A list of the extensions to be compiled is built. In our case this includes a C extension with ctypes bindings, a C extension with cython bindings and a Fortran extension with f2py bindings:
+A list of the extensions to be compiled is built. In our case this includes a C extension with ctypes bindings, a C extension with cython bindings and a Fortran extension with f2py bindings. For each extension the location in the package tree is specified together with the list of the source file to be compiled. Libraries to be linked, header files to be included, compilation flags can be specifiled as additional keywords (for details, see setuptools documentation).
 ```python
 extensions = []
 
