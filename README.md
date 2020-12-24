@@ -159,7 +159,7 @@ extensions.append(
             sources=['pypkgexample/mymodule_fortran/hello_subr.f90'])
 ```
 
-The setup function actually builds the extensions and installs the package.
+The setup function actually builds the extensions and installs the package. Note that the dependencies can be specified by the "install_requires" argument. The pip package installe will automatically install the dependences before the actual package installation.
 ```python
 setup(
     name='pypkgexample',
