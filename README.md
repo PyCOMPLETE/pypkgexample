@@ -8,15 +8,15 @@
  - [References](#references)
 
 ## Introduction
-This package provides an example of python package, including compiled parts in C and Fortran, following the standard structure for python packaging.
+"pypkgexample" provides an example of python package including compiled parts in C and Fortran, following the standard structure for python packaging.
 
 It illustrates how tho create a package that can be easily installed using the [Python Package Installer (pip)](https://pip.pypa.io/), which automatically retrieves all the dependencies and compiles extensions in C and Fortran. 
 
-The package can therefore be simply done by typing:
+The package can therefore be simply installed by typing:
 ```bash
 pip install pypkgexample
 ```
-assuming that the packagee has been downloaded in the current folder.
+assuming that the package has been downloaded in the current folder.
 
 ## Tasks performed by pypkgexample
 
@@ -107,20 +107,22 @@ include LICENSE.txt
 
 ### setup.py
 
+The setup script "setup.py" defines the installation process.
+
+It imports the required functions and classes from setup tools:
 ```python
 from setuptools import setup, find_packages, Extension
+```
 
-#######################################
-# Prepare list of compiled extensions #
-#######################################
-
+It builds a list of the compiled extensions:
+```python
 extensions = []
 
 # C extension called via ctypes
 extensions.append(
         Extension(
             # "name" defines the location of the compiled module 
-            # within the paccage tree:
+            # within the package tree:
             name='pypkgexample.mymodule_c_with_ctypes.hellofcctyp',
             # "sources" are the source files to be compiled
             sources=[('pypkgexample/mymodule_c_with_ctypes/'
@@ -148,7 +150,9 @@ extensions.append(
             name='pypkgexample.mymodule_fortran.helloffort',
             sources=['pypkgexample/mymodule_fortran/hello_subr.f90'])
         )
+```
 
+```python
 
 # If there are cython extension
 from Cython.Build import cythonize
