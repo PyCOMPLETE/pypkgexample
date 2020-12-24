@@ -31,7 +31,7 @@ cython_extensions = [
         # Other cython extensions can be added here
     ]
 # Cython extensions need to be cythonized before being added to main
-# extension list
+# extension list:
 extensions += cythonize(cython_extensions)
 
 
