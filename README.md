@@ -159,18 +159,15 @@ extensions.append(
             sources=['pypkgexample/mymodule_fortran/hello_subr.f90'])
 ```
 
+The setup function actually builds the extensions and installs the package.
 ```python
-#########
-# Setup #
-#########
-
 setup(
     name='pypkgexample',
     version='0.0.0',
     description='Example python package with compiled extensions',
     url='https://github.com/giadarol/pypkgexample',
     author='Giovanni Iadarola',
-    packages=find_packages(),
+    packages=find_packages(), # finds all the packages in the folder
     ext_modules = extensions,
     install_requires=[
         'numpy>=1.0',
