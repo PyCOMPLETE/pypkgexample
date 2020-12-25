@@ -219,6 +219,9 @@ https://docs.python.org/3.8/extending/building.html
 
 https://pgi-jcns.fz-juelich.de/portal/pages/using-c-from-python.html
 
+### structure of C project
+
+https://hiltmon.com/blog/2013/07/03/a-simple-c-plus-plus-project-structure/
 
 ### Additional material
 
