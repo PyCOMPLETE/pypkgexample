@@ -361,7 +361,20 @@ suffix = sysconfig.get_config_var('EXT_SUFFIX')
 _hc = ctypes.CDLL(thisfolder.joinpath('hellofcctyp' + suffix))
 ```
 
-For the C functions to be callable from C, with numpy arrays as arguments, their interface needs to be 
+For the C functions to be callable from C, with numpy arrays as arguments, their interface needs to be explicitly defined by:
+```python
+nd_pointer = np.ctypeslib.ndpointer(dtype=np.float64, ndim=1, flags="C")
+_hc.sqrt_array_c.argtypes = (nd_pointer, ctypes.c_int, nd_pointer)
+```
+
+The C function, can then by called from python:
+```python
+def sqrt_array(vect):
+    vect_arr = np.float_(vect)
+    res = np.empty_like(vect_arr)
+    _hc.sqrt_array_c(vect_arr, len(vect_arr), res)
+    return(res)
+```
 
 
 
