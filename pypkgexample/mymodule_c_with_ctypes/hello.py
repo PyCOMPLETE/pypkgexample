@@ -16,14 +16,14 @@ _hc = ctypes.CDLL(thisfolder.joinpath(
 # Define interface to be usable with numpy array
 nd_pointer = np.ctypeslib.ndpointer(
         dtype=np.float64, ndim=1, flags="C")
-_hc.sqrt_array.argtypes = (nd_pointer, ctypes.c_int, nd_pointer)
+_hc.sqrt_array_c.argtypes = (nd_pointer, ctypes.c_int, nd_pointer)
 
 # Python wrapping function
 def sqrt_array(vect):
     vect_arr = np.float_(vect)
     res = np.empty_like(vect_arr)
-    _hc.sqrt_array(vect_arr, len(vect_arr), res)
+    _hc.sqrt_array_c(vect_arr, len(vect_arr), res)
     return(res)
 
 def say_hello():
-    _hc.say_hello()
+    _hc.say_hello_c()

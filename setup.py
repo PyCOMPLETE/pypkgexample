@@ -14,9 +14,12 @@ extensions.append(
             name='pypkgexample.mymodule_c_with_ctypes.hellofcctyp',
             # "sources" are the source files to be compiled
             sources=[('pypkgexample/mymodule_c_with_ctypes/'
-                        + 'hellofunctions.c')]),
+                        + '/src/hellofunctions.c')],
+            include_dirs=[('pypkgexample/mymodule_c_with_ctypes'
+                        + '/include')],
             # Here one can add compilation flags, libraries, 
             # macro declarations, etc. See setuptools documentation.
+            )
         )
 
 # C extension called via cython
