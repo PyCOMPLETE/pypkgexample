@@ -296,7 +296,15 @@ def sqrt_array(double[::1] vect, double[::1] res):
 def say_hello():
     say_hello_c()
 ```
-
+The moduldfile gets compiled when executing [setup.py](#setuppy) (or pip install), following our extension definition, into a file called "pypkgexample/mymodule_c_with_cython/helloccyth.cpython-38-x86_64-linux-gnu.so", which can be imported in python by the statement:
+```python
+import pypkgexample.mymodule_fortran.helloccyth
+```
+or by a python file in the mymodule_fortran simply as:
+```python
+from . import helloccyth
+```
+as done for example in "pypkgexample/mymodule_c_with_cython/hello.py".
 
 
 ## References
