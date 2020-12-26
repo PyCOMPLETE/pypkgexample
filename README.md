@@ -204,6 +204,35 @@ from .mymodule_c_with_cython.hello import sqrt_array as sqrt_array_c_cython
 from .mymodule_c_with_cython.hello import say_hello as say_hello_c_cython
 ```
 
+### Bindings to Fortran with f2py
+
+The functions to be exposed to python are contained in a Fortran source file:
+
+```fortran 
+      subroutine sqrt_array(vect, vect_len, res)
+      
+        implicit none
+        
+        integer, intent(in)     :: vect_len
+        real(kind=8), intent(in)        :: vect(vect_len)
+        real(kind=8), intent(out)       :: res(vect_len)
+        
+        integer ::  i
+
+        do i=1,vect_len
+            res(i) = sqrt(vect(i))
+        enddo 
+
+      end subroutine
+      
+
+      subroutine say_hello()
+
+        write(*,*), "Hello from Fortran!"
+
+      end subroutine
+```
+
 
 ## References
 The following resources were used in preparing this package.
