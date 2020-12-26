@@ -246,9 +246,9 @@ from . import helloffort
 as done for example in "pypkgexample/mymodule_fortran/hello.py".
 
 ### Bindings to C with cython
-In this case the C functions to be bound are contained in a C source file:
+In this case the C functions to be bound are defined by C header and a C source file:
 ```C
-//pypkgexample/pypkgexample/mymodule_c_with_cython/src/hellofunctions.c
+/* pypkgexample/pypkgexample/mymodule_c_with_cython/src/hellofunctions.c */
 
 #include <hellofunctions.h>
 
