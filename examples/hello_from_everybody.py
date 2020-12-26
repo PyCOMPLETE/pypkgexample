@@ -1,6 +1,6 @@
-import hellofrom as hf
+import pypkgexample as pe
 
-hf.say_hello_python()
-hf.say_hello_fortran()
-hf.say_hello_c_ctypes()
-hf.say_hello_c_cython()
+pe.say_hello_python()
+pe.say_hello_fortran()
+pe.say_hello_c_ctypes()
+pe.say_hello_c_cython()
