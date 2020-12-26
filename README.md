@@ -295,7 +295,7 @@ def sqrt_array(double[::1] vect, double[::1] res):
 def say_hello():
     say_hello_c()
 ```
-The module gets compiled when executing [setup.py](#setuppy) (or pip install), following our extension definition, into a file called "pypkgexample/mymodule_c_with_cython/helloccyth.cpython-38-x86_64-linux-gnu.so", which can be imported in python by the statement:
+The module gets compiled when executing [setup.py](#setuppy) (or pip install), following our extension definition, into a file called "pypkgexample/mymodule_c_with_cython/hellofccyth.cpython-38-x86_64-linux-gnu.so", which can be imported in python by the statement:
 ```python
 import pypkgexample.mymodule_fortran.helloccyth
 ```
@@ -340,7 +340,28 @@ void say_hello_c() {
     fflush(stdout);
 }
 ```
+The source gets compiled when executing [setup.py](#setuppy) (or pip install), following our extension definition, into a shared library file called "pypkgexample/mymodule_c_with_ctypes/hellofcctyp.cpython-38-x86_64-linux-gnu.so". This shared library cannot be imported in python with a simple import statement because it does not exposes the required interface. In can instead be imported in python using the "ctypes.CDLL" function.
+This is done in the file pypkgexample/pypkgexample/mymodule_c_with_ctypes/hello.py. 
 
+To do so,  the exact path of the shared object needs to be retrieved. This is done my identifying the identifying the path of the containing folder a by using the sysconfig builtin library to retrieve the suffix ".cpython-38-x86_64-linux-gnu.so" (which depends on the python version and operative system):
+
+```python
+from pathlib import Path
+import sysconfig
+import ctypes
+
+import numpy as np
+
+# We need a bit of gymnastics to retrive the shared 
+# library path
+thisfolder = Path(__file__).parent.absolute()
+suffix = sysconfig.get_config_var('EXT_SUFFIX')
+
+# Load compiled shared library
+_hc = ctypes.CDLL(thisfolder.joinpath('hellofcctyp' + suffix))
+```
+
+For the C functions to be callable from C, with numpy arrays as arguments, their interface needs to be 
 
 
 
