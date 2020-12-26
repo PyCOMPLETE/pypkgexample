@@ -10,7 +10,7 @@ extensions = []
 extensions.append(
         Extension(
             # "name" defines the location of the compiled module 
-            # within the paccage tree:
+            # within the package tree:
             name='pypkgexample.mymodule_c_with_ctypes.hellofcctyp',
             # "sources" are the source files to be compiled
             sources=[('pypkgexample/mymodule_c_with_ctypes/'
@@ -36,7 +36,7 @@ cython_extensions = [
         ),
         # Other cython extensions can be added here
     ]
-# Cython extensions need to be cythonized before being added to main
+# Cython extensions need to be cythonized before being added to the main
 # extension list:
 extensions += cythonize(cython_extensions)
 
@@ -44,7 +44,7 @@ extensions += cythonize(cython_extensions)
 
 # f2py extension 
 # (to handle f2py extensions we need to replace the setup function and 
-# the Extension class with their exteded version from numpy ones)
+# the Extension class with their extended version from the numpy package)
 from numpy.distutils.core import Extension
 from numpy.distutils.core import setup
 extensions.append(

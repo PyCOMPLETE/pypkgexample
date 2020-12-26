@@ -75,7 +75,7 @@ print(f'From C via cython: {pe.sqrt_array_c_cython(a)}')
  
 ## Installation code
 
-The build and installation process is performed by the pip pacakge installer based on the following files
+The build and installation process is performed by the pip pacakge installer based on the following files:
 
 ### pyproject.toml
 
@@ -94,7 +94,7 @@ requires = [
 
 ### MANIFEST.in
 
-The file "MANIFEST.in" defined the additional files that need to be copied together with the installed packeage together with those that are strictly required for the package to work. In our case we include this readme file and the license information.
+The file "MANIFEST.in" defines the additional files that need to be copied together with the installed package, together with those that are strictly required for the package to work. In our case we include, "pyproject.toml", this readme file and the license information.
 
 ```python
 include pyproject.toml
@@ -115,7 +115,7 @@ The required functions and classes are imported from the setuptools library:
 from setuptools import setup, find_packages, Extension
 ```
 
-A list of the extensions to be compiled is built. In our case this includes a C extension with ctypes bindings, a C extension with cython bindings and a Fortran extension with f2py bindings. For each extension the location in the package tree is specified together with the list of the source file (C, Fortran and cython files) to be compiled. Libraries to be linked, header files to be included, compilation flags can be specifiled as additional keywords (for details, see setuptools documentation).
+A list of the extensions to be compiled is built. In our case this includes a C extension to be used with ctypes bindings, a C extension with cython bindings and a Fortran extension with f2py bindings. For each extension its location within the package tree is specified, together with the list of the source files (C, Fortran and cython files) to be compiled. Libraries to be linked, header files to be included, compilation flags can be specified as additional keywords (for details, see setuptools documentation).
 ```python
 extensions = []
 
@@ -123,7 +123,7 @@ extensions = []
 extensions.append(
         Extension(
             # "name" defines the location of the compiled module 
-            # within the paccage tree:
+            # within the package tree:
             name='pypkgexample.mymodule_c_with_ctypes.hellofcctyp',
             # "sources" are the source files to be compiled
             sources=[('pypkgexample/mymodule_c_with_ctypes/'
@@ -149,14 +149,14 @@ cython_extensions = [
         ),
         # Other cython extensions can be added here
     ]
-# Cython extensions need to be cythonized before being added to main
+# Cython extensions need to be cythonized before being added to the main
 # extension list:
 extensions += cythonize(cython_extensions)
 
 
 # f2py extension 
 # (to handle f2py extensions we need to replace the setup function and 
-# the Extension class with their exteded version from numpy ones)
+# the Extension class with their extended version from the numpy package)
 from numpy.distutils.core import Extension
 from numpy.distutils.core import setup
 extensions.append(
