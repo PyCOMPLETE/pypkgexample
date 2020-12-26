@@ -25,8 +25,11 @@ cython_extensions = [
         Extension(
             name='pypkgexample.mymodule_c_with_cython.hellofccyth', 
             sources=[('pypkgexample/mymodule_c_with_cython/'
-                        + 'hellocython.pyx')],
-            include_dirs=['./mymodule/mymodule_c_with_cython/']
+                        + 'hellocython.pyx'),
+                     ('pypkgexample/mymodule_c_with_cython/'
+                        + '/src/hellofunctions.c')],
+            include_dirs=[('pypkgexample/mymodule_c_with_cython'
+                        + '/include')],
         ),
         # Other cython extensions can be added here
     ]
