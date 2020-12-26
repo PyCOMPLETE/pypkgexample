@@ -21,9 +21,9 @@ assuming that the package has been downloaded in the current folder.
 
 ## Tasks performed by pypkgexample
 
-The package performs two tasks for illustration purposes:
+```pypkgexample``` performs two tasks for illustration purposes:
  - it says "hello";
- - it computes the square root of an array (to illustrate how to pass an array to Fortran or C compiled code).
+ - it computes the square root of an array (to illustrate how to pass a python array to Fortran or C compiled code).
  
 These features are implemented in pure python, as well as through extensions implemented in Fortran (bound via [f2py](https://numpy.org/doc/stable/f2py/)) and in C (bound via [ctypes](https://docs.python.org/3/library/ctypes.html) and [cython](https://cython.org)).
 
@@ -65,13 +65,13 @@ print(f'From C via cython: {pe.sqrt_array_c_cython(a)}')
 
 ## Structure of the package
 
-```pypkgexample``` has the structure used for standard python packages. It consists in a folder named after the package "pypkgexample" (which is also the top level of the git repository) that contains the source code, the code and information for the installation, documentation, unit tests and usage examples. In particular:
- - The **source code** is hosted in a subfolder that also has the same name of the python package (pypkgexample).
- - **Unit tests** are hosted in the folder "tests" and can be executed using [pytest](http://pytest.org)
+```pypkgexample``` has the structure used for standard python packages. It consists in a folder named after the package "pypkgexample" (which is also the top level of the git repository) that contains the source code, the required code and information for the installation, documentation, unit tests and usage examples. In particular:
+ - The **source code** is contained in a subfolder that also has the same name of the python package (pypkgexample).
+ - **Unit tests** is contained in the folder "tests" and can be executed using [pytest](http://pytest.org)
  - **Examples** illustrating the package usage are hosted in the folder "examples"
  - **License** information is contained in the file "LICENSE.txt"
  - This **documentation** is contained in the file "README.md"
- - The **installation code and information** is defined by the files "pyprojet.toml", "MANIFEST.in", "setup.py", which will be described in more detail in the following section.
+ - The **installation process** is defined by the files ["pyprojet.toml"](pyprojet.toml), ["MANIFEST.in"](manifestin), and  ["setup.py"](setuppy), which will be described in more detail in the following section.
  
 ## Installation code
 
