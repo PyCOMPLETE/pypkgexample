@@ -10,12 +10,10 @@ thisfolder = Path(__file__).parent.absolute()
 suffix = sysconfig.get_config_var('EXT_SUFFIX')
 
 # Load compiled shared library
-_hc = ctypes.CDLL(thisfolder.joinpath(
-    'hellofcctyp' + suffix))
+_hc = ctypes.CDLL(thisfolder.joinpath('hellofcctyp' + suffix))
 
 # Define interface to be usable with numpy array
-nd_pointer = np.ctypeslib.ndpointer(
-        dtype=np.float64, ndim=1, flags="C")
+nd_pointer = np.ctypeslib.ndpointer(dtype=np.float64, ndim=1, flags="C")
 _hc.sqrt_array_c.argtypes = (nd_pointer, ctypes.c_int, nd_pointer)
 
 # Python wrapping function
