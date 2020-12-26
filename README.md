@@ -234,6 +234,12 @@ The functions to be exposed to python are contained in a Fortran source file:
 
       end subroutine
 ```
+f2py uses the intent annotations to define the interface of the corresponding python functions. Different options to to that are desccibed in the f2py documentation.
+
+The fortran source file gets compiled when executing [setup.py](#setuppy) (or pip install), following our extension definition, into a file called "pypkgexample/mymodule_fortran/helloffort.cpython-38-x86_64-linux-gnu.so", which can be imported in python by the statement:
+```python
+import pypkgexample.mymodule_fortran.helloffort
+```
 
 
 ## References
