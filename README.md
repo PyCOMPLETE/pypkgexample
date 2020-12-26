@@ -166,7 +166,7 @@ extensions.append(
         )
 ```
 
-The setup function is the one that actually builds the extensions and installs the package. Note how dependencies are specified by the "install_requires" argument. The pip package installer will automatically install the dependences before the package installation.
+The setup function is the one that actually builds the extensions and installs the package. Note that the package dependencies are specified by the "install_requires" argument. The pip package installer will automatically install the dependencies before the package installation.
 ```python
 setup(
     name='pypkgexample',
@@ -185,9 +185,9 @@ setup(
 
 ## Python bindings to C and Fortran
 
-In this section we will briefly discuss the examples of python bindings present in the package.
+In this section we will briefly discuss the examples of python bindings contained in the pypkgexample.
 
-Note that the interface of the package is defined by the file ```__init__.py```, so that the different implemenentations of the functions "say_hello" and "sqrt_array" can be used as discuseed [above](#tasks-performed-by-pypkgexample):
+Note that the interface of the package is defined by the file ```__init__.py```, so that the different implementations of the functions "say_hello" and "sqrt_array" can be used as discussed [above](#tasks-performed-by-pypkgexample):
 ```python
 from ._version import __version__
 
@@ -233,20 +233,20 @@ The functions to be exposed to python are contained in a Fortran source file:
 
       end subroutine
 ```
-f2py uses the intent annotations to define the interface of the corresponding python functions. Different options to to that are desccibed in the f2py documentation.
+f2py uses the intent annotations to define the interface of the corresponding python functions. Different options for achieving this are described in the f2py documentation.
 
-The fortran source file gets compiled when executing [setup.py](#setuppy) (or pip install), following our extension definition, into a file called "pypkgexample/mymodule_fortran/helloffort.cpython-38-x86_64-linux-gnu.so", which can be imported in python by the statement:
+The fortran source file gets compiled when executing [setup.py](#setuppy) (or pip install), based on our extension definition, producing a file called "pypkgexample/mymodule_fortran/helloffort.cpython-38-x86_64-linux-gnu.so", which can be imported in python by the statement:
 ```python
 import pypkgexample.mymodule_fortran.helloffort
 ```
-or by a python file in the mymodule_fortran simply as:
+or, in python file in the mymodule_fortran module, simply as:
 ```python
 from . import helloffort
 ```
 as done for example in "pypkgexample/mymodule_fortran/hello.py".
 
 ### Bindings to C with cython
-In this case the C functions to be bound are defined by C header and a C source file:
+The C functions to be bound are defined by C header and a C source file:
 
 ```C
 /* pypkgexample/pypkgexample/mymodule_c_with_cython/include/hellofunctions.h */
@@ -281,7 +281,7 @@ void say_hello_c() {
 }
 ```
 
-The interface to python is defined by a cython source file where the C functions can be directly called
+The interface to python is defined by a cython source file, form which the C functions can be directly called:
 ```cython
 # pypkgexample/pypkgexample/mymodule_c_with_cython/hellocython.pyx
 
@@ -295,11 +295,11 @@ def sqrt_array(double[::1] vect, double[::1] res):
 def say_hello():
     say_hello_c()
 ```
-The module gets compiled when executing [setup.py](#setuppy) (or pip install), following our extension definition, into a file called "pypkgexample/mymodule_c_with_cython/hellofccyth.cpython-38-x86_64-linux-gnu.so", which can be imported in python by the statement:
+The module gets compiled when executing [setup.py](#setuppy) (or pip install), following our extension definition, producing a file called "pypkgexample/mymodule_c_with_cython/hellofccyth.cpython-38-x86_64-linux-gnu.so", which can be imported in python by the statement:
 ```python
 import pypkgexample.mymodule_fortran.helloccyth
 ```
-or by a python file in the mymodule_fortran simply as:
+or by a python file in the mymodule_c_with_cython module simply as:
 ```python
 from . import helloccyth
 ```
@@ -340,10 +340,10 @@ void say_hello_c() {
     fflush(stdout);
 }
 ```
-The source gets compiled when executing [setup.py](#setuppy) (or pip install), following our extension definition, into a shared library file called "pypkgexample/mymodule_c_with_ctypes/hellofcctyp.cpython-38-x86_64-linux-gnu.so". This shared library cannot be imported in python with a simple import statement because it does not exposes the required interface. In can instead be imported in python using the "ctypes.CDLL" function.
+The source gets compiled when executing [setup.py](#setuppy) (or pip install), based on our extension definition, producing a shared library file called "pypkgexample/mymodule_c_with_ctypes/hellofcctyp.cpython-38-x86_64-linux-gnu.so". This shared library cannot be imported in python with a simple import statement because it does not exposes the required interface. In can instead be imported in python using the "ctypes.CDLL" function.
 This is done in the file pypkgexample/pypkgexample/mymodule_c_with_ctypes/hello.py. 
 
-To do so,  the exact path of the shared object needs to be retrieved. This is done my identifying the identifying the path of the containing folder a by using the sysconfig builtin library to retrieve the suffix ".cpython-38-x86_64-linux-gnu.so" (which depends on the python version and operative system):
+To do so,  the exact path of the shared object needs to be retrieved. This is done my identifying the path of the containing folder and by using the sysconfig builtin library to retrieve the suffix ".cpython-38-x86_64-linux-gnu.so" (which depends on the python version and operative system):
 
 ```python
 from pathlib import Path
@@ -361,13 +361,13 @@ suffix = sysconfig.get_config_var('EXT_SUFFIX')
 _hc = ctypes.CDLL(thisfolder.joinpath('hellofcctyp' + suffix))
 ```
 
-For the C functions to be callable from C, with numpy arrays as arguments, their interface needs to be explicitly defined by:
+For the C functions to be callable from C, their interface needs to be explicitly defined by:
 ```python
 nd_pointer = np.ctypeslib.ndpointer(dtype=np.float64, ndim=1, flags="C")
 _hc.sqrt_array_c.argtypes = (nd_pointer, ctypes.c_int, nd_pointer)
 ```
 
-The C function can then by called from python:
+The C function can then by called from python as done in the "hello.py" file:
 ```python
 def sqrt_array(vect):
     vect_arr = np.float_(vect)
@@ -379,7 +379,7 @@ def sqrt_array(vect):
 
 
 ## References
-The following resources were used in preparing this package.
+The following resources were used for preparing this package and documentation.
 
 ### On python packaging
 
@@ -420,7 +420,7 @@ https://docs.python.org/3.8/extending/building.html
 
 https://pgi-jcns.fz-juelich.de/portal/pages/using-c-from-python.html
 
-### structure of C project
+### Structure of C project
 
 https://hiltmon.com/blog/2013/07/03/a-simple-c-plus-plus-project-structure/
 
@@ -430,7 +430,7 @@ Comparison cython vs swig:
 
 https://us.pycon.org/2013/schedule/presentation/111/
 
-Comparison cffi cython pybind11:
+Comparison cffi vs cython vs pybind11:
 
 http://blog.behnel.de/posts/cython-pybind11-cffi-which-tool-to-choose.html
 
