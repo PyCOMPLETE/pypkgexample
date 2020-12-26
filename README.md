@@ -71,7 +71,7 @@ print(f'From C via cython: {pe.sqrt_array_c_cython(a)}')
  - **Examples** illustrating the package usage are hosted in the folder "examples"
  - **License** information is contained in the file "LICENSE.txt"
  - This **documentation** is contained in the file "README.md"
- - The **installation process** is defined by the files ["pyprojet.toml"](#pyprojettoml), ["MANIFEST.in"](#manifestin), and  ["setup.py"](#setuppy), which will be described in more detail in the following section.
+ - The **installation process** is defined by the files ["pyprocjet.toml"](#pyprojecttoml), ["MANIFEST.in"](#manifestin), and  ["setup.py"](#setuppy), which will be described in more detail in the following section.
  
 ## Installation code
 
