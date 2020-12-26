@@ -208,8 +208,8 @@ from .mymodule_c_with_cython.hello import say_hello as say_hello_c_cython
 
 The functions to be exposed to python are contained in a Fortran source file:
 
-```fortran90
-      ! pypkgexample/pypkgexample/mymodule_fortran/hello_subr.f90
+```fortran
+! pypkgexample/pypkgexample/mymodule_fortran/hello_subr.f90
 
       subroutine sqrt_array(vect, vect_len, res)
       
