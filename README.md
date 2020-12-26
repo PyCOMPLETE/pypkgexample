@@ -122,7 +122,7 @@ extensions = []
 extensions.append(
         Extension(
             # "name" defines the location of the compiled module 
-            # within the package tree:
+            # within the paccage tree:
             name='pypkgexample.mymodule_c_with_ctypes.hellofcctyp',
             # "sources" are the source files to be compiled
             sources=[('pypkgexample/mymodule_c_with_ctypes/'
@@ -132,43 +132,42 @@ extensions.append(
         )
 
 # C extension called via cython
-extensions.append(
+from Cython.Build import cythonize
+cython_extensions = [
         Extension(
             name='pypkgexample.mymodule_c_with_cython.hellofccyth', 
             sources=[('pypkgexample/mymodule_c_with_cython/'
                         + 'hellocython.pyx')],
             include_dirs=['./mymodule/mymodule_c_with_cython/']
-        ))
+        ),
+        # Other cython extensions can be added here
+    ]
+# Cython extensions need to be cythonized before being added to main
+# extension list
+extensions += cythonize(cython_extensions)
+
+
 
 # f2py extension 
 # (to handle f2py extensions we need to replace the setup function and 
-# the Extension class deom setuptools with their extended versions from numpy)
+# the Extension class with their exteded version from numpy ones)
 from numpy.distutils.core import Extension
 from numpy.distutils.core import setup
 extensions.append(
         Extension(
             name='pypkgexample.mymodule_fortran.helloffort',
             sources=['pypkgexample/mymodule_fortran/hello_subr.f90'])
-        )
 ```
 
+The setup function actually builds the extensions and installs the package. Note that the dependencies can be specified by the "install_requires" argument. The pip package installe will automatically install the dependences before the actual package installation.
 ```python
-
-# If there are cython extension
-from Cython.Build import cythonize
-extensions = cythonize(extensions)
-
-#########
-# Setup #
-#########
-
 setup(
     name='pypkgexample',
     version='0.0.0',
     description='Example python package with compiled extensions',
     url='https://github.com/giadarol/pypkgexample',
     author='Giovanni Iadarola',
-    packages=find_packages(),
+    packages=find_packages(), # finds all the packages in the folder
     ext_modules = extensions,
     install_requires=[
         'numpy>=1.0',
@@ -220,6 +219,9 @@ https://docs.python.org/3.8/extending/building.html
 
 https://pgi-jcns.fz-juelich.de/portal/pages/using-c-from-python.html
 
+### structure of C project
+
+https://hiltmon.com/blog/2013/07/03/a-simple-c-plus-plus-project-structure/
 
 ### Additional material
 
