@@ -207,7 +207,6 @@ from .mymodule_c_with_cython.hello import say_hello as say_hello_c_cython
 ### Bindings to Fortran with f2py
 
 The functions to be exposed to python are contained in a Fortran source file:
-
 ```fortran
 ! pypkgexample/pypkgexample/mymodule_fortran/hello_subr.f90
 
@@ -244,7 +243,11 @@ or by a python file in the mymodule_fortran simply as:
 ```python
 from . import helloffort
 ```
-as done for example "pypkgexample/mymodule_fortran/hello.py".
+as done for example in "pypkgexample/mymodule_fortran/hello.py".
+
+### Bindings to C with cython
+In this case 
+
 
 
 ## References
