@@ -247,6 +247,23 @@ as done for example in "pypkgexample/mymodule_fortran/hello.py".
 
 ### Bindings to C with cython
 In this case the C functions to be bound are defined by C header and a C source file:
+
+```C
+/* pypkgexample/pypkgexample/mymodule_c_with_cython/include/hellofunctions.h */
+
+
+#ifndef HELLOFUNCTIONS_H
+#define HELLOFUNCTIONS_H
+
+#include <math.h>
+#include <stdio.h>
+
+void sqrt_array_c(double* vect, int vect_len, double* res); 
+void say_hello_c();
+
+#endif
+```
+
 ```C
 /* pypkgexample/pypkgexample/mymodule_c_with_cython/src/hellofunctions.c */
 
