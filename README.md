@@ -126,9 +126,12 @@ extensions.append(
             name='pypkgexample.mymodule_c_with_ctypes.hellofcctyp',
             # "sources" are the source files to be compiled
             sources=[('pypkgexample/mymodule_c_with_ctypes/'
-                        + 'hellofunctions.c')]),
+                        + '/src/hellofunctions.c')],
+            include_dirs=[('pypkgexample/mymodule_c_with_ctypes'
+                        + '/include')],
             # Here one can add compilation flags, libraries, 
             # macro declarations, etc. See setuptools documentation.
+            )
         )
 
 # C extension called via cython
@@ -137,13 +140,16 @@ cython_extensions = [
         Extension(
             name='pypkgexample.mymodule_c_with_cython.hellofccyth', 
             sources=[('pypkgexample/mymodule_c_with_cython/'
-                        + 'hellocython.pyx')],
-            include_dirs=['./mymodule/mymodule_c_with_cython/']
+                        + 'hellocython.pyx'),
+                     ('pypkgexample/mymodule_c_with_cython/'
+                        + '/src/hellofunctions.c')],
+            include_dirs=[('pypkgexample/mymodule_c_with_cython'
+                        + '/include')],
         ),
         # Other cython extensions can be added here
     ]
 # Cython extensions need to be cythonized before being added to main
-# extension list
+# extension list:
 extensions += cythonize(cython_extensions)
 
 
@@ -157,6 +163,7 @@ extensions.append(
         Extension(
             name='pypkgexample.mymodule_fortran.helloffort',
             sources=['pypkgexample/mymodule_fortran/hello_subr.f90'])
+        )
 ```
 
 The setup function actually builds the extensions and installs the package. Note that the dependencies can be specified by the "install_requires" argument. The pip package installe will automatically install the dependences before the actual package installation.
