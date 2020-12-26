@@ -282,8 +282,10 @@ void say_hello_c() {
 }
 ```
 
-The interface to python is defined by a cython source file:
+The interface to python is defined by a cython source file where the C functions can be directly called
 ```cython
+# pypkgexample/pypkgexample/mymodule_c_with_cython/hellocython.pyx
+
 cdef extern from "hellofunctions.h" :
     void sqrt_array_c(double* vect, int vect_len, double* res)
     void say_hello_c()
