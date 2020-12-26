@@ -367,7 +367,7 @@ nd_pointer = np.ctypeslib.ndpointer(dtype=np.float64, ndim=1, flags="C")
 _hc.sqrt_array_c.argtypes = (nd_pointer, ctypes.c_int, nd_pointer)
 ```
 
-The C function, can then by called from python:
+The C function can then by called from python:
 ```python
 def sqrt_array(vect):
     vect_arr = np.float_(vect)
