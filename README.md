@@ -166,7 +166,7 @@ extensions.append(
         )
 ```
 
-The setup function actually builds the extensions and installs the package. Note that the dependencies can be specified by the "install_requires" argument. The pip package installe will automatically install the dependences before the actual package installation.
+The setup function is the one that actually builds the extensions and installs the package. Note how dependencies are specified by the "install_requires" argument. The pip package installer will automatically install the dependences before the package installation.
 ```python
 setup(
     name='pypkgexample',
