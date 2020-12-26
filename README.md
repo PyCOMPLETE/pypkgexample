@@ -182,6 +182,27 @@ setup(
     )
 ```
 
+## Python bundings to C and Fortran
+
+In this section we will briefly discuss the examples of python bindings present in the package.
+
+Note that the interface of the package is defined by the file "__init__.py", so that the different implemenentations of the functions "say_hello" and "sqrt_array" can be used as discuseed [above](#tasks-performed-by-pypkgexample):
+```python
+from ._version import __version__
+
+from .mymodule_python.hello import say_hello as say_hello_python
+from .mymodule_python.hello import sqrt_array as sqrt_array_python
+
+from .mymodule_fortran.hello import sqrt_array as sqrt_array_fortran
+from .mymodule_fortran.hello import say_hello as say_hello_fortran
+
+from .mymodule_c_with_ctypes.hello import sqrt_array as sqrt_array_c_ctypes
+from .mymodule_c_with_ctypes.hello import say_hello as say_hello_c_ctypes
+
+from .mymodule_c_with_cython.hello import sqrt_array as sqrt_array_c_cython
+from .mymodule_c_with_cython.hello import say_hello as say_hello_c_cython
+```
+
 
 ## References
 The following resources were used in preparing this package.
