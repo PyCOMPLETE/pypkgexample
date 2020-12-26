@@ -1,1 +1,0 @@
-f2py sqrt_array.f90 -c -m fff
