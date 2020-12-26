@@ -59,7 +59,7 @@ extensions.append(
 
 setup(
     name='pypkgexample',
-    version='0.0.0',
+    version='1.0.0',
     description='Example python package with compiled extensions',
     url='https://github.com/giadarol/pypkgexample',
     author='Giovanni Iadarola',
