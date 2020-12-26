@@ -187,7 +187,7 @@ setup(
 
 In this section we will briefly discuss the examples of python bindings present in the package.
 
-Note that the interface of the package is defined by the file "__init__.py", so that the different implemenentations of the functions "say_hello" and "sqrt_array" can be used as discuseed [above](#tasks-performed-by-pypkgexample):
+Note that the interface of the package is defined by the file ```__init__.py```, so that the different implemenentations of the functions "say_hello" and "sqrt_array" can be used as discuseed [above](#tasks-performed-by-pypkgexample):
 ```python
 from ._version import __version__
 
