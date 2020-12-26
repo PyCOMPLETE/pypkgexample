@@ -5,6 +5,7 @@
  - [Tasks performed by pypkgexample](#tasks-performed-by-pypkgexample)
  - [Structure of the package](#structure-of-the-package)
  - [Installation code](#installation-code)
+ - [Python bindings to C and Fortran](#python-bindings-to-c-and-fortran)
  - [References](#references)
 
 ## Introduction
@@ -126,9 +127,12 @@ extensions.append(
             name='pypkgexample.mymodule_c_with_ctypes.hellofcctyp',
             # "sources" are the source files to be compiled
             sources=[('pypkgexample/mymodule_c_with_ctypes/'
-                        + 'hellofunctions.c')]),
+                        + '/src/hellofunctions.c')],
+            include_dirs=[('pypkgexample/mymodule_c_with_ctypes'
+                        + '/include')],
             # Here one can add compilation flags, libraries, 
             # macro declarations, etc. See setuptools documentation.
+            )
         )
 
 # C extension called via cython
@@ -137,15 +141,17 @@ cython_extensions = [
         Extension(
             name='pypkgexample.mymodule_c_with_cython.hellofccyth', 
             sources=[('pypkgexample/mymodule_c_with_cython/'
-                        + 'hellocython.pyx')],
-            include_dirs=['./mymodule/mymodule_c_with_cython/']
+                        + 'hellocython.pyx'),
+                     ('pypkgexample/mymodule_c_with_cython/'
+                        + '/src/hellofunctions.c')],
+            include_dirs=[('pypkgexample/mymodule_c_with_cython'
+                        + '/include')],
         ),
         # Other cython extensions can be added here
     ]
 # Cython extensions need to be cythonized before being added to main
-# extension list
+# extension list:
 extensions += cythonize(cython_extensions)
-
 
 
 # f2py extension 
@@ -157,9 +163,10 @@ extensions.append(
         Extension(
             name='pypkgexample.mymodule_fortran.helloffort',
             sources=['pypkgexample/mymodule_fortran/hello_subr.f90'])
+        )
 ```
 
-The setup function actually builds the extensions and installs the package. Note that the dependencies can be specified by the "install_requires" argument. The pip package installe will automatically install the dependences before the actual package installation.
+The setup function is the one that actually builds the extensions and installs the package. Note how dependencies are specified by the "install_requires" argument. The pip package installer will automatically install the dependences before the package installation.
 ```python
 setup(
     name='pypkgexample',
@@ -174,6 +181,27 @@ setup(
         'pytest', # In principle could be made optional
         ]
     )
+```
+
+## Python bindings to C and Fortran
+
+In this section we will briefly discuss the examples of python bindings present in the package.
+
+Note that the interface of the package is defined by the file "__init__.py", so that the different implemenentations of the functions "say_hello" and "sqrt_array" can be used as discuseed [above](#tasks-performed-by-pypkgexample):
+```python
+from ._version import __version__
+
+from .mymodule_python.hello import say_hello as say_hello_python
+from .mymodule_python.hello import sqrt_array as sqrt_array_python
+
+from .mymodule_fortran.hello import sqrt_array as sqrt_array_fortran
+from .mymodule_fortran.hello import say_hello as say_hello_fortran
+
+from .mymodule_c_with_ctypes.hello import sqrt_array as sqrt_array_c_ctypes
+from .mymodule_c_with_ctypes.hello import say_hello as say_hello_c_ctypes
+
+from .mymodule_c_with_cython.hello import sqrt_array as sqrt_array_c_cython
+from .mymodule_c_with_cython.hello import say_hello as say_hello_c_cython
 ```
 
 
