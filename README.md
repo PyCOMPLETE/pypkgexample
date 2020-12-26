@@ -5,7 +5,7 @@
  - [Tasks performed by pypkgexample](#tasks-performed-by-pypkgexample)
  - [Structure of the package](#structure-of-the-package)
  - [Installation code](#installation-code)
- - [Python bindings to C and Fortran]#python-bindings-to-c-and-fortran
+ - [Python bindings to C and Fortran](#python-bindings-to-c-and-fortran)
  - [References](#references)
 
 ## Introduction
