@@ -240,6 +240,11 @@ The fortran source file gets compiled when executing [setup.py](#setuppy) (or pi
 ```python
 import pypkgexample.mymodule_fortran.helloffort
 ```
+or by a python file in the mymodule_fortran simply as:
+```python
+from . import helloffort
+```
+as done for example "pypkgexample/mymodule_fortran/hello.py".
 
 
 ## References
