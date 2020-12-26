@@ -153,7 +153,6 @@ cython_extensions = [
 extensions += cythonize(cython_extensions)
 
 
-
 # f2py extension 
 # (to handle f2py extensions we need to replace the setup function and 
 # the Extension class with their exteded version from numpy ones)
