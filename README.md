@@ -182,7 +182,7 @@ setup(
     )
 ```
 
-## Python bundings to C and Fortran
+## Python bindings to C and Fortran
 
 In this section we will briefly discuss the examples of python bindings present in the package.
 
