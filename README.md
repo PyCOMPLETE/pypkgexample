@@ -187,7 +187,7 @@ setup(
 
 In this section we will briefly discuss the examples of python bindings present in the package.
 
-Note that the interface of the package is defined by the file "__init__.py", so that the different implemenentations of the functions "say_hello" and "sqrt_array" can be used as discuseed [above](#tasks-performed-by-pypkgexample):
+Note that the interface of the package is defined by the file ```__init__.py```, so that the different implemenentations of the functions "say_hello" and "sqrt_array" can be used as discuseed [above](#tasks-performed-by-pypkgexample):
 ```python
 from ._version import __version__
 
@@ -203,6 +203,145 @@ from .mymodule_c_with_ctypes.hello import say_hello as say_hello_c_ctypes
 from .mymodule_c_with_cython.hello import sqrt_array as sqrt_array_c_cython
 from .mymodule_c_with_cython.hello import say_hello as say_hello_c_cython
 ```
+
+### Bindings to Fortran with f2py
+
+The functions to be exposed to python are contained in a Fortran source file:
+```fortran
+! pypkgexample/pypkgexample/mymodule_fortran/hello_subr.f90
+
+      subroutine sqrt_array(vect, vect_len, res)
+      
+        implicit none
+        
+        integer, intent(in)     :: vect_len
+        real(kind=8), intent(in)        :: vect(vect_len)
+        real(kind=8), intent(out)       :: res(vect_len)
+        
+        integer ::  i
+
+        do i=1,vect_len
+            res(i) = sqrt(vect(i))
+        enddo 
+
+      end subroutine
+      
+
+      subroutine say_hello()
+
+        write(*,*), "Hello from Fortran!"
+
+      end subroutine
+```
+f2py uses the intent annotations to define the interface of the corresponding python functions. Different options to to that are desccibed in the f2py documentation.
+
+The fortran source file gets compiled when executing [setup.py](#setuppy) (or pip install), following our extension definition, into a file called "pypkgexample/mymodule_fortran/helloffort.cpython-38-x86_64-linux-gnu.so", which can be imported in python by the statement:
+```python
+import pypkgexample.mymodule_fortran.helloffort
+```
+or by a python file in the mymodule_fortran simply as:
+```python
+from . import helloffort
+```
+as done for example in "pypkgexample/mymodule_fortran/hello.py".
+
+### Bindings to C with cython
+In this case the C functions to be bound are defined by C header and a C source file:
+
+```C
+/* pypkgexample/pypkgexample/mymodule_c_with_cython/include/hellofunctions.h */
+
+#ifndef HELLOFUNCTIONS_H
+#define HELLOFUNCTIONS_H
+
+#include <math.h>
+#include <stdio.h>
+
+void sqrt_array_c(double* vect, int vect_len, double* res); 
+void say_hello_c();
+
+#endif
+```
+
+```C
+/* pypkgexample/pypkgexample/mymodule_c_with_cython/src/hellofunctions.c */
+
+#include <hellofunctions.h>
+
+void sqrt_array_c(double* vect, int vect_len, double* res) {
+    int ii;
+    for (ii = 0; ii < vect_len; ii++) {
+       res[ii] = sqrt(vect[ii]); 
+    }
+}
+
+void say_hello_c() {
+    printf("Hello from C with cython!\n");
+    fflush(stdout);
+}
+```
+
+The interface to python is defined by a cython source file where the C functions can be directly called
+```cython
+# pypkgexample/pypkgexample/mymodule_c_with_cython/hellocython.pyx
+
+cdef extern from "hellofunctions.h" :
+    void sqrt_array_c(double* vect, int vect_len, double* res)
+    void say_hello_c()
+
+def sqrt_array(double[::1] vect, double[::1] res):
+    sqrt_array_c(&vect[0], len(vect), &res[0])
+
+def say_hello():
+    say_hello_c()
+```
+The module gets compiled when executing [setup.py](#setuppy) (or pip install), following our extension definition, into a file called "pypkgexample/mymodule_c_with_cython/helloccyth.cpython-38-x86_64-linux-gnu.so", which can be imported in python by the statement:
+```python
+import pypkgexample.mymodule_fortran.helloccyth
+```
+or by a python file in the mymodule_fortran simply as:
+```python
+from . import helloccyth
+```
+as done for example in "pypkgexample/mymodule_c_with_cython/hello.py".
+
+### Bindings to C with ctypes
+In this case the C functions to be bound are defined by C header and a C source file:
+
+```C
+/* pypkgexample/pypkgexample/mymodule_c_with_ctypes/include/hellofunctions.h */
+
+#ifndef HELLOFUNCTIONS_H
+#define HELLOFUNCTIONS_H
+
+#include <math.h>
+#include <stdio.h>
+
+void sqrt_array_c(double* vect, int vect_len, double* res); 
+void say_hello_c();
+
+#endif
+```
+
+```C
+/* pypkgexample/pypkgexample/mymodule_c_with_ctypes/src/hellofunctions.c */
+
+#include <hellofunctions.h>
+
+void sqrt_array_c(double* vect, int vect_len, double* res) {
+    int ii;
+    for (ii = 0; ii < vect_len; ii++) {
+       res[ii] = sqrt(vect[ii]); 
+    }
+}
+
+void say_hello_c() {
+    printf("Hello from C with ctypes!\n");
+    fflush(stdout);
+}
+```
+
+
 
 
 ## References
