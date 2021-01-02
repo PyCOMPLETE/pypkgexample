@@ -361,7 +361,7 @@ suffix = sysconfig.get_config_var('EXT_SUFFIX')
 _hc = ctypes.CDLL(thisfolder.joinpath('hellofcctyp' + suffix))
 ```
 
-For the C functions to be callable from C, their interface needs to be explicitly defined by:
+For the C functions to be callable from python, their interface needs to be explicitly defined by:
 ```python
 nd_pointer = np.ctypeslib.ndpointer(dtype=np.float64, ndim=1, flags="C")
 _hc.sqrt_array_c.argtypes = (nd_pointer, ctypes.c_int, nd_pointer)
